@@ -27,7 +27,7 @@ The application supports user and employee authentication, balance enquiry, and 
 ## ⚙️ Setup & Installation
 
 ```bash
-### 1️⃣ Clone the repository
+1️⃣ Clone the repository
 git clone https://github.com/your-username/banking-management-system.git
 cd banking-management-system
 2️⃣ Create a virtual environment
