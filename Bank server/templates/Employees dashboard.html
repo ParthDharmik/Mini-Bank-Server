@@ -141,6 +141,11 @@
         <div class="footer">
             Secure banking portal
         </div>
+        <script>
+            {% if error %}
+                alert("{{ error }}");
+            {% endif %}
+        </script>
     </div>
 
 </body>
