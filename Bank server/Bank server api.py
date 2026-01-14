@@ -37,9 +37,9 @@ def users():
         conn.close()
 
         if result is None:
-            error = "Username not found ❌"
+            error = "Username not found"
         elif result[0].strip() != Password:
-            error = "Wrong password ❌"
+            error = "Wrong password"
         else:
             session["s_acc_no"] = Account_number
             return redirect(url_for("user_dashboard"))
@@ -49,8 +49,8 @@ def users():
 
 @app.route('/users/dashboard', methods=['GET', 'POST'])
 def user_dashboard():
-
     error = None
+    
     if "s_acc_no" not in session:
         return redirect(url_for("users"))
     
@@ -107,7 +107,7 @@ def user_dashboard():
             cur.close()
             conn.close()
 
-    return render_template("Users dashboard.html", balance_html=balance)
+    return render_template("Users dashboard.html", balance_html=balance, error=error)
 
 @app.route('/employees',methods=['GET', 'POST'])
 def employees():
@@ -126,9 +126,9 @@ def employees():
         conn.close()
 
         if result is None:
-            error = "Username not found ❌"
+            error = "Username not found"
         elif result[0].strip() != Password:
-            error = "Wrong password ❌"
+            error = "Wrong password"
         else:
             session["s_id"] = Id
             return redirect(url_for("employee_dashboard"))
@@ -166,7 +166,7 @@ def employee_dashboard():
         cur.close()
         conn.close()
 
-    return render_template("Employees dashboard.html")
+    return render_template("Employees dashboard.html",error=error)
 
 if __name__ == '__main__':
     app.run(debug=True)
